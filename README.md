@@ -23,6 +23,7 @@ ya da gem paketini terminalden manuel olarak kurun:
 ```ruby
 require 'tc_kimlik_no_dogrulama'
 TcKimlikNoDogrulama::verify(18071470110)
+# Sonuç true ya da false dönecektir.
 ```
 
 ## Algoritma ve kontroller
