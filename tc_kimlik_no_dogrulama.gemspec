@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tolga@gezginis.com"]
   spec.summary       = %q{T.C. Kimlik No Doğrulama}
   spec.description   = %q{Ruby için T.C. Kimlik Numarası doğrulama sistemi}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tgezginis/tc_kimlik_no_dogrulama"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
