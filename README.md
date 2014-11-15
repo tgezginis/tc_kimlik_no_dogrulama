@@ -4,7 +4,7 @@ Ruby için T.C. Kimlik Numarası doğrulama sistemi
 
 ## Kurulum
 
-Gemfile dosyasınıza aşağıdaki kodu ekleyin:
+Gemfile dosyasına aşağıdaki kodu ekleyin:
 
 ```ruby
 gem 'tc_kimlik_no_dogrulama'
@@ -25,6 +25,14 @@ require 'tc_kimlik_no_dogrulama'
 TcKimlikNoDogrulama::verify(18071470110)
 # Sonuç true ya da false dönecektir.
 ```
+
+
+**Rails 4**
+```ruby
+TcKimlikNoDogrulama::verify(18071470110)
+# Sonuç true ya da false dönecektir.
+```
+
 
 ## Algoritma ve kontroller
  - T.C. Kimlik numarası 11 karakter olmalıdır.
