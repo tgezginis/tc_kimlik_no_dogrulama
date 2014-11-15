@@ -4,10 +4,10 @@ module TcKimlikNoDogrulama
   def self.verify(tcKimlikNo)
     tcKimlikNo = tcKimlikNo.to_s
 
-    # Kontrol 1: TC Kimlik No boş olmamalı
-    # Kontrol 2: TC Kimlik No uzunluğu 11 karakter olmalı
-    # Kontrol 3: TC Kimlik No sayılardan oluşmalı
-    # Kontrol 4: TC Kimlik No ilk sayısı 0 olmamalı
+    # Kontrol 1: TC Kimlik numarası boş olmamalıdır.
+    # Kontrol 2: T.C. Kimlik numarası 11 karakter olmalıdır.
+    # Kontrol 3: T.C. Kimlik numarası 0 ile başlayamaz.
+    # Kontrol 4: T.C. Kimlik numarasının tüm karakterleri sayı olmalıdır.
     if (tcKimlikNo.nil? || tcKimlikNo.length != 11 || !numeric?(tcKimlikNo) || tcKimlikNo[0] == 0)
       return false
     end
@@ -27,16 +27,16 @@ module TcKimlikNoDogrulama
     end
 
     # Kontrol 1
-    # 1. 3. 5. 7. ve 9. hanelerin toplamının 7 katından, 2. 4. 6. ve 8. hanelerin toplamı
-    # çıkartıldığında, elde edilen sonucun 10'a bölümünden kalan, yani Mod10'u bize
-    # 10. haneyi verir.
+    # 1 3 5 7 ve 9 hanelerinin toplamının 7 katından, 2 4 6 ve 8 hanelerin toplamı çıkartıldığında,
+    # elde edilen sonucun 10'a bölümünden kalan sayı,
+    # yani Mod 10'u bize 10. haneyi vermelidir.
     if(sum_odd * 7 - sum_even) % 10 == digits[9]
       return true
     end
 
     # Kontrol 2
-    # 1. 2. 3. 4. 5. 6. 7. 8. 9. ve 10. hanelerin toplamından elde edilen sonucun
-    # 10'a bölümünden kalan, yani Mod10'u bize 11. haneyi verir.
+    # 1 2 3 4 5 6 7 8 9 ve 10 hanelerinin toplamından elde edilen sonucun
+    # 10'a bölümünden kalan sayı, yani Mod 10'u bize 11. haneyi vermelidir.
     if sum % 10 == digits[10]
       return true
     end

@@ -1,31 +1,33 @@
-# TcKimlikNoDogrulama
+# T.C. Kimlik No Doğrulama
 
-TODO: Write a gem description
+Ruby için T.C. Kimlik Numarası doğrulama sistemi
 
-## Installation
+## Kurulum
 
-Add this line to your application's Gemfile:
+Gemfile dosyasınıza aşağıdaki kodu ekleyin:
 
 ```ruby
 gem 'tc_kimlik_no_dogrulama'
 ```
 
-And then execute:
+ve terminalde çalıştırın:
 
     $ bundle
 
-Or install it yourself as:
+ya da gem paketini terminalden manuel olarak kurun:
 
     $ gem install tc_kimlik_no_dogrulama
 
-## Usage
+## Kullanım
 
-TODO: Write usage instructions here
+```ruby
+require 'tc_kimlik_no_dogrulama'
+TcKimlikNoDogrulama::verify(18071470110)
+```
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/tc_kimlik_no_dogrulama/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## Algoritma ve kontroller
+ - T.C. Kimlik numarası 11 karakter olmalıdır.
+ - T.C. Kimlik numarası 0 ile başlayamaz.
+ - T.C. Kimlik numarasının tüm karakterleri sayı olmalıdır.
+ - 1 3 5 7 ve 9 hanelerinin toplamının 7 katından, 2 4 6 ve 8 hanelerin toplamı çıkartıldığında, elde edilen sonucun 10’a bölümünden kalan sayı, yani Mod 10’u bize 10. haneyi vermelidir.
+ - 1 2 3 4 5 6 7 8 9 ve 10 hanelerinin toplamından elde edilen sonucun 10’a bölümünden kalan sayı, yani Mod 10’u bize 11. haneyi vermelidir.
