@@ -45,6 +45,7 @@ module TcKimlikNoDogrulama
     return false
   end
 
+  private
   def self.numeric?(str)
     !!(str =~ /\A[[:digit:]]+\Z/)
   end

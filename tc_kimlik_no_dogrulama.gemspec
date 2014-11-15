@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tolga Gezginiş"]
   spec.email         = ["tolga@gezginis.com"]
   spec.summary       = %q{T.C. Kimlik No Doğrulama}
-  spec.description   = %q{Ruby için hazırlanmış T.C. Kimlik Numarası doğrulama sistemi}
+  spec.description   = %q{Ruby için T.C. Kimlik Numarası doğrulama sistemi}
   spec.homepage      = ""
   spec.license       = "MIT"
 
