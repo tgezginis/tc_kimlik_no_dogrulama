@@ -29,8 +29,10 @@ module TcKimlikNoDogrulama
       # yani Mod 10'u bize 10. haneyi vermelidir.
       # Kontrol #2: 1 2 3 4 5 6 7 8 9 ve 10 hanelerinin toplamından elde edilen sonucun
       # 10'a bölümünden kalan sayı, yani Mod 10'u bize 11. haneyi vermelidir.
-      if (((sum_odd * 7 - sum_even) % 10 == digits[9]) && (sum % 10 == digits[10]))
+      if (((sum_odd * 7 - sum_even) % 10 == digits[9]) || (sum % 10 == digits[10]))
         return true
+      else
+        return false
       end
     else
       return false
