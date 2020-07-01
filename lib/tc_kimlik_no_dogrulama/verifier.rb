@@ -14,8 +14,8 @@ module TcKimlikNoDogrulama
       # Kontrol 3: T.C. Kimlik numarası 11 karakter olmalıdır.
       # Kontrol 4: T.C. Kimlik numarasının tüm karakterleri sayı olmalıdır.
 
-      return false if identifier.nil? || valid_first_character?
-      return false unless valid_character_length?
+      return false if identifier.nil? || starts_with_zero?
+      return false unless length_is_valid?
       return false unless numeric?
 
       calculate_sums
@@ -27,14 +27,14 @@ module TcKimlikNoDogrulama
     attr_accessor :sum, :sum_odd, :sum_even
 
     def numeric?
-      !!(identifier =~ /\A[[:digit:]]+\Z/)
+      identifier =~ /\A[[:digit:]]+\Z/
     end
 
-    def valid_first_character?
+    def starts_with_zero?
       identifier.chr == '0'
     end
 
-    def valid_character_length?
+    def length_is_valid?
       identifier.length == 11
     end
 
