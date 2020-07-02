@@ -4,7 +4,12 @@ Dir[File.join(__dir__, 'validations', '*.rb')].sort.each { |file| require file }
 
 module TcKimlikNoDogrulama
   class Verifier
-    VALIDATORS = %i[length format numericality].freeze
+    VALIDATORS =
+      [
+        TcKimlikNoDogrulama::Validations::Length,
+        TcKimlikNoDogrulama::Validations::Format,
+        TcKimlikNoDogrulama::Validations::Numericality
+      ].freeze
 
     attr_reader :identifier
 
@@ -14,18 +19,8 @@ module TcKimlikNoDogrulama
 
     def valid?
       VALIDATORS.all? do |validator|
-        validator_service(validator).new(identifier).valid?
+        validator.new(identifier).valid?
       end
-    end
-
-    private
-
-    def class_name(validator)
-      validator.to_s.capitalize
-    end
-
-    def validator_service(validator)
-      Object.const_get "::TcKimlikNoDogrulama::Validations::#{class_name(validator)}"
     end
   end
 end

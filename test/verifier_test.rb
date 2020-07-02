@@ -12,16 +12,12 @@ class VerifierTest < Minitest::Test
     assert_equal true, sample_verifier.valid?
   end
 
-  def test_class_name
-    assert_equal 'Test', sample_verifier.send('class_name', 'test')
-  end
-
-  def test_validator_service
-    assert_equal TcKimlikNoDogrulama::Validations::Format, sample_verifier.send('validator_service', 'format')
-  end
-
   def test_validators
     assert_equal 3, TcKimlikNoDogrulama::Verifier::VALIDATORS.count
-    assert_equal true, (TcKimlikNoDogrulama::Verifier::VALIDATORS == %i[length format numericality])
+    assert_equal true, TcKimlikNoDogrulama::Verifier::VALIDATORS == [
+      TcKimlikNoDogrulama::Validations::Length,
+      TcKimlikNoDogrulama::Validations::Format,
+      TcKimlikNoDogrulama::Validations::Numericality
+    ]
   end
 end
