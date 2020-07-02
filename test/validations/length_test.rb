@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'minitest/autorun'
+require_relative '../test_helper'
 require 'tc_kimlik_no_dogrulama/validations/length'
 
 class LengthValidatorTest < Minitest::Test
